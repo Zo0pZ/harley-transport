@@ -120,8 +120,11 @@ export of the previous harleytransport.co.uk (5 pages) flagged:
 
 Colours, fonts, spacing and radii are defined as CSS variables at the top of
 `assets/css/style.css` (`:root { ... }`). Change the brand colour in one place
-and it updates everywhere. Fonts are Sora (headings) and Inter (body), loaded
-from Google Fonts.
+and it updates everywhere. The palette is a light, clean base (white/off-white
+body, warm near-black "ink" for dark sections like the hero and footer) built
+around a deep oxblood-red accent (`--red-600: #820f01`), with a brighter
+`--red-400` variant used for accent text on the dark sections. Fonts are
+Manrope (headings) and Inter (body), loaded from Google Fonts.
 
 ## Deploying
 
