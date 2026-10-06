@@ -152,6 +152,52 @@
     track.addEventListener("mouseleave", restartTimer);
   }
 
+  /* ---------- Parallax depth on fleet/hero imagery ---------- */
+  var parallaxEls = document.querySelectorAll("[data-parallax] img");
+  if (parallaxEls.length && !reduceMotion) {
+    var parallaxTicking = false;
+    var updateParallax = function () {
+      parallaxEls.forEach(function (img) {
+        var frame = img.closest("[data-parallax]");
+        var rect = frame.getBoundingClientRect();
+        var viewH = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.bottom < 0 || rect.top > viewH) return;
+        var progress = (rect.top - viewH) / (rect.height + viewH);
+        var shift = progress * 60;
+        img.style.transform = "scale(1.18) translateY(" + shift.toFixed(2) + "px)";
+      });
+      parallaxTicking = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!parallaxTicking) {
+        requestAnimationFrame(updateParallax);
+        parallaxTicking = true;
+      }
+    }, { passive: true });
+    updateParallax();
+  }
+
+  /* ---------- Fleet gallery filter ---------- */
+  var fleetFilters = document.querySelector("[data-fleet-filters]");
+  if (fleetFilters) {
+    var fleetCards = document.querySelectorAll("[data-fleet-category]");
+    fleetFilters.querySelectorAll("[data-filter]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        fleetFilters.querySelectorAll("[data-filter]").forEach(function (b) {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+        var filter = btn.getAttribute("data-filter");
+        fleetCards.forEach(function (card) {
+          var matches = filter === "all" || card.getAttribute("data-fleet-category") === filter;
+          card.classList.toggle("is-hidden", !matches);
+        });
+      });
+    });
+  }
+
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll(".faq-item").forEach(function (item) {
     var q = item.querySelector(".faq-q");
@@ -246,6 +292,27 @@
     var steps = quoteForm.querySelectorAll(".quote-step");
     var bars = quoteForm.querySelectorAll(".quote-progress .bar");
     var stepIndex = 0;
+
+    /* Conditional logic: Step 2 shows different fields depending on the
+       service picked in Step 1 (fleet hire needs hire dates, not a load). */
+    var serviceSelect = quoteForm.querySelector("#q-service");
+    var loadGroup = quoteForm.querySelector("[data-field-group='load']");
+    var hireGroup = quoteForm.querySelector("[data-field-group='hire']");
+    if (serviceSelect && loadGroup && hireGroup) {
+      var syncServiceFields = function () {
+        var isHire = serviceSelect.value === "Vehicle / Fleet Hire";
+        loadGroup.hidden = isHire;
+        hireGroup.hidden = !isHire;
+        loadGroup.querySelectorAll("[data-required-for='load']").forEach(function (f) {
+          f.required = !isHire;
+        });
+        hireGroup.querySelectorAll("[data-required-for='hire']").forEach(function (f) {
+          f.required = isHire;
+        });
+      };
+      serviceSelect.addEventListener("change", syncServiceFields);
+      syncServiceFields();
+    }
 
     function renderStep() {
       steps.forEach(function (step, i) { step.classList.toggle("is-active", i === stepIndex); });

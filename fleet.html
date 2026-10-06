@@ -94,33 +94,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h2>Sized to the load, not the other way round</h2>
         <p class="lead">We quote the vehicle your freight actually needs &mdash; which keeps cost down and makes every tight access or awkward drop that much easier.</p>
       </div>
+      <div class="fleet-filters" data-fleet-filters role="group" aria-label="Filter fleet by vehicle class">
+        <button type="button" class="fleet-filter is-active" data-filter="all" aria-pressed="true">All vehicles</button>
+        <button type="button" class="fleet-filter" data-filter="light" aria-pressed="false">Light (7.5t)</button>
+        <button type="button" class="fleet-filter" data-filter="mid" aria-pressed="false">Mid-weight (12&ndash;18t)</button>
+        <button type="button" class="fleet-filter" data-filter="heavy" aria-pressed="false">Heavy rigid (25t)</button>
+        <button type="button" class="fleet-filter" data-filter="artic" aria-pressed="false">Artic (44t)</button>
+      </div>
       <div class="grid grid-4" data-reveal-group>
-        
-        <article class="card fleet-card" data-reveal style="--i:0">
+
+        <article class="card fleet-card" data-reveal data-fleet-category="light" style="--i:0">
           <div class="fleet-visual"><span class="tonnage">7.5<small>tonne</small></span></div>
           <h3>Light Haulage</h3>
           <p>Nimble enough for tight urban access and local multi-drop work, quick enough for urgent same-day runs.</p>
           <div class="fleet-specs"><span>Urban access</span><span>Local multi-drop</span><span>Same-day</span></div>
           <a href="quote.html" class="card-link">Request this vehicle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </article>
-        
-        <article class="card fleet-card" data-reveal style="--i:1">
+
+        <article class="card fleet-card" data-reveal data-fleet-category="mid" style="--i:1">
           <div class="fleet-visual"><span class="tonnage">12&ndash;18<small>tonne</small></span></div>
           <h3>Mid-Weight Rigid</h3>
           <p>The workhorse for pallet networks and scheduled trade deliveries across the South West and South Wales.</p>
           <div class="fleet-specs"><span>Pallet networks</span><span>Trade delivery</span><span>Scheduled runs</span></div>
           <a href="quote.html" class="card-link">Request this vehicle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </article>
-        
-        <article class="card fleet-card" data-reveal style="--i:2">
+
+        <article class="card fleet-card" data-reveal data-fleet-category="heavy" style="--i:2">
           <div class="fleet-visual"><span class="tonnage">25<small>tonne</small></span></div>
           <h3>Heavy Rigid</h3>
           <p>Bulk and part-load freight on longer legs, with the payload to make multi-drop routes efficient.</p>
           <div class="fleet-specs"><span>Bulk freight</span><span>Part-load</span><span>Longer routes</span></div>
           <a href="quote.html" class="card-link">Request this vehicle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </article>
-        
-        <article class="card fleet-card" data-reveal style="--i:3">
+
+        <article class="card fleet-card" data-reveal data-fleet-category="artic" style="--i:3">
           <div class="fleet-visual"><span class="tonnage">44<small>tonne</small></span></div>
           <h3>Artic / Full Load</h3>
           <p>Full trailer loads for trunk routes and through-the-night runs, where every pallet space counts.</p>
@@ -144,7 +151,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Fleet renewed with lower-emission engines as vehicles are replaced</li>
         </ul>
       </div>
-      <div class="media-frame">
+      <div class="media-frame" data-parallax>
         <img src="assets/images/hero-poster.jpg" alt="Harley Transport fleet at the Weston-super-Mare depot" loading="lazy" width="1920" height="1080">
       </div>
     </div>

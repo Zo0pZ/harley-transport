@@ -159,9 +159,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </div>
-          <div class="form-field">
-            <label for="q-desc">Load description</label>
-            <textarea id="q-desc" name="load_description" rows="4" placeholder="Number of pallets / weight / dimensions / any access restrictions" required></textarea>
+          <div data-field-group="load">
+            <div class="form-field">
+              <label for="q-desc">Load description</label>
+              <textarea id="q-desc" name="load_description" rows="4" placeholder="Number of pallets / weight / dimensions / any access restrictions" data-required-for="load" required></textarea>
+            </div>
+          </div>
+          <div data-field-group="hire" hidden>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="q-hire-duration">Hire duration</label>
+                <select id="q-hire-duration" name="hire_duration" data-required-for="hire">
+                  <option value="">Select duration</option>
+                  <option>Single day</option>
+                  <option>Multiple days</option>
+                  <option>Weekly</option>
+                  <option>Monthly or longer</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="q-hire-start">Hire start date</label>
+                <input id="q-hire-start" name="hire_start_date" type="date" data-required-for="hire">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="q-hire-notes">What's the hire for?</label>
+              <textarea id="q-hire-notes" name="hire_notes" rows="4" placeholder="Contract cover, extra capacity, driver included or self-drive, pickup depot, etc."></textarea>
+            </div>
           </div>
           <div class="quote-step-footer">
             <button type="button" class="btn btn-outline" data-prev>Back</button>

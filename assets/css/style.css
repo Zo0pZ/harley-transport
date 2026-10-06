@@ -398,6 +398,24 @@ p.lead { font-size: 1.15rem; color: var(--grey-600); }
   padding: 5px 10px; border-radius: 999px;
 }
 
+/* ---- Fleet gallery filter ---- */
+.fleet-filters {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: center; margin: 0 0 40px;
+}
+.fleet-filter {
+  font-family: var(--font-head); font-weight: 700; font-size: 0.85rem;
+  color: var(--navy-800); background: var(--white);
+  border: 1px solid var(--grey-200); border-radius: 999px;
+  padding: 10px 20px; transition: all 0.25s var(--ease);
+}
+.fleet-filter:hover { border-color: var(--amber-500); color: var(--amber-600); }
+.fleet-filter.is-active { background: var(--navy-900); color: var(--white); border-color: var(--navy-900); }
+.fleet-card.is-hidden {
+  display: none;
+}
+.fleet-card[data-reveal] { transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); }
+
 /* ---- Steps / process ---- */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: step; }
 .step { position: relative; padding-top: 8px; }
@@ -695,6 +713,15 @@ p.lead { font-size: 1.15rem; color: var(--grey-600); }
   html { scroll-behavior: auto; }
   [data-reveal] { opacity: 1; transform: none; transition: none; }
   .coverage-pin .dot { animation: none; }
+}
+
+/* ==========================================================================
+   Parallax depth (media-frame imagery)
+   ========================================================================== */
+[data-parallax] { overflow: hidden; }
+[data-parallax] img { transform: scale(1.18) translateY(0); will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] img { transform: none; }
 }
 
 /* ==========================================================================
