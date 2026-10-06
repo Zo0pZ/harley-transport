@@ -448,7 +448,7 @@ p.lead { font-size: 1.15rem; color: var(--grey-600); }
   box-shadow: var(--shadow-lg);
   position: relative;
 }
-.media-frame img, .media-frame video { width: 100%; }
+.media-frame img, .media-frame video { width: 100%; height: auto; display: block; object-fit: cover; }
 
 .stat-pop {
   position: absolute; bottom: -22px; left: -22px;

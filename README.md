@@ -39,9 +39,12 @@ anyone can open a file, edit the text, and save. There's nothing to "build" or
 ## Before this goes live — a checklist
 
 **Content & imagery**
-- [ ] Replace `assets/images/hero-poster.jpg` and `og-default.png` — these are
-      placeholder graphics, not real photography. Swap in real photos/video of
-      your vehicles, depot and drivers (with their permission).
+- [ ] Replace `assets/images/hero-poster.jpg`, `assets/images/fleet-yard.jpg`
+      and `assets/images/og-default.jpg` — these are hand-built brand
+      illustrations (navy/amber, truck silhouettes), not real photography,
+      used as a stopgap so the site isn't shipping with a generic stock
+      photo. Swap in real photos/video of your vehicles, depot and drivers
+      (with their permission) as soon as you have them.
 - [ ] Add a real showreel to `assets/video/fleet-showreel.mp4` (see the README
       in that folder for the spec). The hero works fine without it — it just
       shows the poster image — but video is a big trust-builder for haulage.
