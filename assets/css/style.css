@@ -188,8 +188,7 @@ p.lead { font-size: 1.15rem; color: var(--grey-600); }
   color: var(--navy-900);
   flex-shrink: 0;
 }
-.brand .brand-mark { color: var(--red-600); }
-.brand img { height: 38px; width: auto; }
+.brand img { width: auto; display: block; }
 
 .main-nav { display: flex; align-items: center; gap: 2px; }
 .main-nav a {
