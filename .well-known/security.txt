@@ -1,0 +1,3 @@
+Contact: mailto:harley@harleytransport.co.uk
+Preferred-Languages: en
+Canonical: https://www.harleytransport.co.uk/.well-known/security.txt
