@@ -1,0 +1,27 @@
+# Netlify configuration (optional — only used if this site is deployed on Netlify).
+# Remove this file if deploying elsewhere; it has no effect on other hosts.
+
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers — the old site's SEO/security audit flagged every one of
+# these as missing on every page. If you host elsewhere (cPanel, Cloudflare,
+# etc.) these need to be set in that host's config instead — this block only
+# applies on Netlify.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'self'"
+
+# Netlify auto-detects the quote-request, contact and driver-application
+# forms from their markup (data-netlify="true") — no extra config needed.
+# Set up email notifications for each form in Netlify: Site settings > Forms > Notifications.

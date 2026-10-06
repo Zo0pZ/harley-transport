@@ -1,0 +1,14 @@
+{
+  "name": "Harley Transport",
+  "short_name": "Harley Transport",
+  "description": "Same-day, multi-day and through-the-night haulage across the South West and South Wales.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1e33",
+  "theme_color": "#0b1e33",
+  "icons": [
+    { "src": "/assets/images/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/assets/images/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/images/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
